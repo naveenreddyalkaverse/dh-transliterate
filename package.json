@@ -1,0 +1,35 @@
+{
+  "name": "dh-transliterate",
+  "version": "0.0.2",
+  "description": "Transliterate module for DH",
+  "scripts": {
+    "lint": "eslint ./src/",
+    "clean": "rm -rf lib/",
+    "compile": "npm run lint && npm run clean && babel -d lib/ src/ && cp -R src/java/ lib/java",
+    "prepublish": "npm run compile"
+  },
+  "publishConfig":{
+    "registry":"http://artifactory.newshunt.com/nexus/content/repositories/npm-snapshots/"
+  },
+  "main": "./lib/api/Transliterator.js",
+  "author": "SS",
+  "license": "DH",
+  "dependencies": {
+    "java": "^0.6.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.4.5",
+    "babel-preset-node5": "^10.5.0",
+    "eslint": "^2.5.3",
+    "eslint-config-360fy": "^1.1.2",
+    "eslint-plugin-react": "^5.0.1"
+  },
+  "eslintConfig": {
+    "extends": "360fy"
+  },
+  "babel": {
+    "presets": [
+      "node5"
+    ]
+  }
+}
